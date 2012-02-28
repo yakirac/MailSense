@@ -1,0 +1,31 @@
+.header_space {
+	height: 40px
+}
+
+.body {
+	/*background-color: white;*/
+	margin: 0 30 0 30;
+}
+
+p {
+	margin: 0 auto 0 auto;
+}
+
+.s_title{
+	color: gold;
+	}
+
+.bold{
+	font-weight: bold;
+}
+
+h2 {
+	color: gold;
+}
+
+.max{
+
+}	
+/*ui-icon-loading{background-image:url(http://m.cip.gatech.edu/~buzzit/base_widget/images/ajax-loader.png);width:40px;height:40px;-moz-border-radius:20px;-webkit-border-radius:20px;border-radius:20px;background-size:35px 35px}*/
+
+.ui-icon-loading{background-image:url(http://m.cip.gatech.edu/css/images/ajax-loader.png);

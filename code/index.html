@@ -1,0 +1,221 @@
+<!--  start of mainon page -->
+<div data-role="page" id="mainon" data-theme="e">
+	<div class="header_space"></div>
+	<div data-role="content">
+		<p>MailSense notifies you when mail is placed in your campus mailbox.</p>
+		<p id="demo2"></p>
+		<form action="http://m.cip.gatech.edu/~mailsense/base_widget/update.php" method="post" id=updateform>	
+			<!-- horizontal radio buttons -->
+			<div data-role="fieldcontain" class="flipswitch">
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<legend>Turn notification:</legend>
+					<input type="radio" name="radio-flip" id="radio-on" value="1" onclick="show('expandoptions')" />
+					<label for="radio-on">On</label>
+					<input type="radio" name="radio-flip" id="radio-off" value="0" onclick="hide('expandoptions')" />
+					<label for="radio-off">Off</label>
+				</fieldset>
+			</div>
+			<!-- button horizontal -->
+<!--  			<div data-role="fieldcontain">
+				<label id="slider-label" class="ui-slider" for="nslider" onmouseup="placeholder()">Turn notification:</label>
+				<div data-role="controlgroup" data-type="horizontal" id="nslider" name="nslider">
+					<a href="#mainon" data-role="button" onclick="show()">On</a>
+					<a href="#mainon" data-role="button" onclick="hide()">Off</a>
+				</div>
+			</div>	-->
+
+			<div>
+				<label for="boxn">Box Number:</label>
+		    		<input type="text" name="boxn" id="boxn" value=""  />
+				<label for="combo">Combination:</label>
+		    		<input type="text" name="combo" id="combo" value=""  />
+			</div><br />
+
+			
+			<!--  flip toggle switch -->
+			<!--  <div data-role="fieldcontain">
+				<label id="slider-label" class="ui-slider" for="nslider" onmouseup="placeholder()">Turn notification:</label>
+				<select id="nslider" name="nslider" data-role="slider" onmouseup="placeholder()">
+					<option value="off">Off</option>
+					<option value="on">On</option>
+				</select>
+			</div> -->
+			<div data-role="controlgroup" id="expandoptions">
+				<ul data-role="listview">
+					<li><a href="mailstat_page" onclick="updateMail()">Mail status</a></li>
+					<li><a href="notifications_page">Set notifications</a></li>
+				</ul>
+			</div>	<br /><br />
+			<div>					
+				<!--<a href="#mainon" data-role="button" data-back="false" data-transition="slide" onclick="javascript:updateSettings();">Save Settings </a>-->
+				<a href="javascript:updateSettings();" data-role="button" data-back="false" data-transition="slide">Save Settings</a>
+			</div>		
+		</form>
+	</div> <!--/content -->	
+</div><!-- end of mainon page -->
+
+
+<div data-role="page" id="mailstat_page" data-theme="e">
+	<div class="header_space"></div>
+	<h2 class="s_title" id="havemail"></h2>
+	<p id="mdate">There has been mail in your mailbox since <span class="bold" id="msdate"></span></p>
+	<p id="mwarning">Mail not collected by <span class="bold" id="mwdate">April 15</span>, 2011 will be returned.</p>	
+	<br />
+	<div>
+    	<iframe src="https://www.google.com/calendar/embed?showPrint=0&amp;showCalendars=0&amp;mode=WEEK&amp;height=500&amp;wkst=1&amp;bgcolor=%23ffffff&amp;src=lefqqpi7jh5j9and5dd3430rhc%40group.calendar.google.com&amp;color=%238C500B&amp;ctz=America%2FNew_York" style=" border-width:0 " width="700" height="500" frameborder="0" scrolling="no"></iframe>
+    </div>
+</div><!--/mailstat page -->
+
+
+<!-- notifications page -->
+<div data-role="page" id="notifications_page" data-theme="e">
+	<div class="header_space"></div>
+	<div data-role="content">
+	<h3>Set Notifications</h3>
+	<p> When mail is in my mailbox notify me by: </p>
+		<div data-role="controlgroup">
+			<ul data-role="listview" data-inset="true" data-theme="e">
+				<li><a href="#emailpg" data-back="false" onclick="setEmailPage()">Email</a></li>
+				<li><a href="#textpg" data-back="false" onclick="setTextPage()">Text Message</a></li>
+				<li><a href="#facebookpg" data-back="false"  onclick="setFacebookPage()">Facebook Message</a></li>
+			</ul>
+		</div>
+	</div>
+</div><!-- /notifications page -->
+	
+
+<!--email page -->
+<div data-role="page" id="emailpg" data-theme="e">
+	<div class="header_space"></div><!--
+	<div data-role="fieldcontain">
+		<label id="slider-label" class="ui-slider" for="eslider">Turn notification:</label>
+		<select id="eslider" name="eslider" data-role="slider" data-theme="e">
+			<option value="off">Off</option>
+			<option value="on">On</option>
+		</select>
+	</div>
+	-->
+	<div data-role="content">
+		<h3>Email Settings</h3>
+		<form action="" method="post" id="">
+			<div data-role="fieldcontain" class="flipswitch" data-theme="e">
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<legend>Turn notification:</legend>
+					<input type="radio" name="radio-flip" id="radio-on-2" value="1" onclick="show('expandemail')" />
+					<label for="radio-on-2">On</label>
+					<input type="radio" name="radio-flip" id="radio-off-2" value="0" onclick="hide('expandemail')" />
+					<label for="radio-off-2">Off</label>
+				</fieldset>
+			</div>
+			
+			<div data-role="fieldcontain" class="form" id="expandemail">
+		    	<!--<label for="emailtxt">Email:</label>
+		    	<input type="text" name="emailtxt" id="emailtxt" value=""  />
+		    	<br />-->
+
+				<fieldset data-role="controlgroup">
+						<input type="radio" name="radio" id="r_never" value="r_never"></input>
+						<label for="r_never">Don't send reminders</label>
+						<input type="radio" name="radio" id="r_daily" value="r_daily"></input>
+						<label for="r_daily">Remind daily</label>
+						<input type="radio" name="radio" id="r_max" value="r_max"></input>
+						<label for="r_max">Maximum of 3 reminders</label>
+				</fieldset>
+				<!-- <button onclick="#mailstat">Submit</button> -->
+			</div>
+			
+			<div>
+				<!--<input type="submit" value="Submit" onclick="updateEmail()" href="#notifications_page"></input> -->
+				<a href="#notifications_page" data-role="button" data-back="false" data-transition="slide" onclick="updateEmailSet()">Submit </a> 
+			</div>
+						
+		</form>
+	</div>
+</div><!-- /email page -->
+
+
+
+<!-- text page -->
+<div data-role="page" id="textpg" data-theme="e">
+	<div class="header_space"></div>
+	<div data-role="content">
+		<h3>Text Message Settings</h3>
+		<form action="" method="post" id="">
+			<div data-role="fieldcontain" class="flipswitch" data-theme="e">
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<legend>Turn notification:</legend>
+					<input type="radio" name="radio-flip" id="radio-on-3" value="1" onclick="show('expandtext')" />
+					<label for="radio-on-3">On</label>
+					<input type="radio" name="radio-flip" id="radio-off-3" value="0" onclick="hide('expandtext')" />
+					<label for="radio-off-3">Off</label>
+				</fieldset>
+			</div>	
+				
+			<div data-role="fieldcontain" class="form" id="expandtext" data-theme="e">
+		    	<label for="texttxtbox">Cellphone:</label>
+		    	<input type="text" name="texttxtbox" id="texttxtbox" />	
+		    	<br />	
+				<div data-role="fieldcontain" class="form" id="cexpandtext" data-theme="e">
+					<fieldset data-role="controlgroup">
+						<input type="radio" name="cradio" id="att" value="att"></input>
+						<label for="att">AT&T</label>
+						<input type="radio" name="cradio" id="verizon" value="verizon"></input>
+						<label for="verizon">Verizon</label>
+						<input type="radio" name="cradio" id="tmobile" value="tmobile"></input>
+						<label for="tmobile">T-Mobile</label>
+						<input type="radio" name="cradio" id="sprint" value="sprint"></input>
+						<label for="sprint">Sprint</label>
+					</fieldset>
+				</div>				
+				<fieldset data-role="controlgroup">
+						<input type="radio" name="radio" id="t_never" value="r_never"></input>
+						<label for="t_never">Don't send reminders</label>
+						<input type="radio" name="radio" id="t_daily" value="r_daily"></input>
+						<label for="t_daily">Remind daily</label>
+						<input type="radio" name="radio" id="t_max" value="r_max"></input>
+						<label for="t_max">Maximum of 3 reminders</label>
+				</fieldset>
+			</div>
+			<div>
+				<a href="#notifications_page" data-role="button" data-back="false" data-transition="slide" onclick="updateTextSet()">Submit </a>
+			</div>
+		</form>
+	</div>
+</div><!-- /text page -->
+
+
+
+<div data-role="page" id="facebookpg" data-theme="e">
+	<div class="header_space"></div>
+	<div data-role="content">
+	<h3>Facebook Settings</h3>
+		<form action="" method="post" id="">
+			<div data-role="fieldcontain" class="flipswitch" data-theme="e">
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<legend>Turn notification:</legend>
+					<input type="radio" name="radio-flip" id="radio-on-4" value="1" onclick="show('expandfb')" />
+					<label for="radio-on-4">On</label>
+					<input type="radio" name="radio-flip" id="radio-off-4" value="0" onclick="hide('expandfb')" />
+					<label for="radio-off-4">Off</label>
+				</fieldset>
+			</div>	
+			
+			<div data-role="fieldcontain" class="form" id="expandfb">
+		    	<br />	
+				<fieldset data-role="controlgroup">
+						<input type="radio" name="radio" id="f_never" value="r_never"></input>
+						<label for="f_never">Don't send reminders</label>
+						<input type="radio" name="radio" id="f_daily" value="r_daily"></input>
+						<label for="f_daily">Remind daily</label>
+						<input type="radio" name="radio" id="f_max" value="r_max"></input>
+						<label for="f_max">Maximum of 3 reminders</label>
+				</fieldset>
+			</div>
+			<div>
+				<a href="#notifications_page" data-role="button" data-back="false" data-transition="slide" onclick="updateFacebookSet()">Submit</a>
+			</div>
+		</form>
+	</div>
+</div><!-- /facebook page -->
+
+
